@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Flot Charts</title>
+  <title>AdminLTE 2 | 我的基金 </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -506,7 +506,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Flot Charts
+      		  我的基金
         <small>preview sample</small>
       </h1>
       <ol class="breadcrumb">
@@ -518,87 +518,16 @@
 
     <!-- Main content -->
     <section class="content">
+     
       <div class="row">
-        <div class="col-xs-12">
-          <!-- interactive chart -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Interactive Area Chart</h3>
-
-              <div class="box-tools pull-right">
-                Real time
-                <div class="btn-group" id="realtime" data-toggle="btn-toggle">
-                  <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>
-                  <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
-                </div>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="interactive" style="height: 300px;"></div>
-            </div>
-            <!-- /.box-body-->
-          </div>
-          <!-- /.box -->
-
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-
-      <div class="row">
-        <div class="col-md-6">
-          <!-- Line chart -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Line Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="line-chart" style="height: 300px;"></div>
-            </div>
-            <!-- /.box-body-->
-          </div>
-          <!-- /.box -->
-
-          <!-- Area chart -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Full Width Area Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="area-chart" style="height: 338px;" class="full-width-chart"></div>
-            </div>
-            <!-- /.box-body-->
-          </div>
-          <!-- /.box -->
-
-        </div>
-        <!-- /.col -->
-
-        <div class="col-md-6">
+       
+        <div class="col-md-12">
           <!-- Bar chart -->
           <div class="box box-primary">
             <div class="box-header with-border">
               <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">Bar Chart</h3>
+              <h3 class="box-title">今日基金增长率</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -618,7 +547,7 @@
             <div class="box-header with-border">
               <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">Donut Chart</h3>
+              <h3 class="box-title">我持有的各基金比重</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -864,6 +793,7 @@
 <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
 <script src="../../bower_components/Flot/jquery.flot.categories.js"></script>
 <!-- Page script -->
+
 <script>
   $(function () {
     /*
@@ -1053,34 +983,7 @@
 
     /* END AREA CHART */
 
-    /*
-     * BAR CHART
-     * ---------
-     */
-
-    var bar_data = {
-      data : [['January', 10], ['February', 8], ['March', 4], ['April', 13], ['May', 17], ['June', 9]],
-      color: '#3c8dbc'
-    }
-    $.plot('#bar-chart', [bar_data], {
-      grid  : {
-        borderWidth: 1,
-        borderColor: '#f3f3f3',
-        tickColor  : '#f3f3f3'
-      },
-      series: {
-        bars: {
-          show    : true,
-          barWidth: 0.5,
-          align   : 'center'
-        }
-      },
-      xaxis : {
-        mode      : 'categories',
-        tickLength: 0
-      }
-    })
-    /* END BAR CHART */
+ 
 
     /*
      * DONUT CHART
@@ -1088,9 +991,11 @@
      */
 
     var donutData = [
-      { label: 'Series2', data: 30, color: '#3c8dbc' },
-      { label: 'Series3', data: 20, color: '#0073b7' },
-      { label: 'Series4', data: 50, color: '#00c0ef' }
+      { label: '易方达上证50A', data: 25, color: '#3c8dbc' },
+      { label: '易方达中小盘混合', data: 10, color: '#0073b7' },
+      { label: '工银互联网加股票', data: 6, color: '#00ff00' },
+      { label: '中银证券保本1号', data: 30, color: '#0f73b7' },
+      { label: '广发纯债债券C', data: 29, color: '#0fc0ef' }
     ]
     $.plot('#donut-chart', donutData, {
       series: {
@@ -1128,5 +1033,6 @@
       + Math.round(series.percent) + '%</div>'
   }
 </script>
+<script src="../../js/charts/fundFlot.js"></script>
 </body>
 </html>

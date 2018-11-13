@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fenbi.yjsj.mapper.FundMapper">
+	
+	<select id="selectFundRate" resultType="com.fenbi.yjsj.pojo.Fund">
+		
+		SELECT id, name,day_growth_rate as dayGrowthRate FROM fund ORDER BY day_growth_rate desc 
+	
+	</select>
+	
+	<update id="updateByCode" parameterType="com.fenbi.yjsj.pojo.Fund" >
+		UPDATE FUND
+		<set>
+			<if test="type !=null">
+				TYPE=#{type},
+			</if>
+			<if test="name !=null">
+				NAME=#{name},
+			</if>
+			<if test="company !=null">
+				COMPANY = #{company},
+			</if>
+			
+			<if test="dayGrowthRate!=null">
+				DAY_GROWTH_RATE=#{dayGrowthRate}
+			</if>
+		</set>
+		WHERE FUND_CODE=#{fundCode}
+	</update>
+
+</mapper>

@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
             http://www.springframework.org/schema/context 
-            http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 	<!-- 与springmvc整合 -->
 	<!-- Spring扫描com.fenbi下所有带有spring注解的类并纳入spring容器 但是spring不应该再扫描Controller注解，因为Controller注解已经被Springmvc框架扫描过了 -->
@@ -19,9 +22,10 @@
 	<bean id="jdbcDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://132.232.28.52:3306/yjsj?useSSL=false"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value="root"></property>
+		<property name="url" value="jdbc:mysql://132.232.28.52:3306/yjsj?allowMultiQueries=true&amp;useSSL=false"></property>
+		
+		<property name="username" value="yjsj"></property>
+		<property name="password" value="yjsj"></property>
 	</bean>
 	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -32,6 +36,14 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.fenbi.yjsj.mapper"></property>
 	</bean>
+	
+	<!-- 使用注解处理事务 -->
+	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<!-- 配置事务管理器，该事务管理器对象由spring提供 -->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="jdbcDataSource" />
+    </bean>
 
 </beans>
 
